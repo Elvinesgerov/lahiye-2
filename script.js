@@ -74,3 +74,38 @@ sort.addEventListener("click",()=>{
     sort.src = "icon5.svg"
 })
 
+
+function getList() {
+    let rtr = [];
+    [...document.querySelectorAll(".note")].forEach(item => {
+        rtr.push(String(item.children[0].textContent));
+    })
+    return rtr;
+}
+
+function getSortedList () {
+    return getList().sort();
+}
+
+function getSortedReversedList () {
+    return getSortedList().reverse();
+}
+
+let flagReverse = false;
+
+document.querySelector(".icon1").addEventListener("click",event => {
+    let array;
+    if (flagReverse) {
+        array = getSortedReversedList();
+    }
+    else {
+        array = getSortedList();
+    }
+
+    document.querySelectorAll(".note").forEach((item,ind) => {
+        item.children[0].textContent = array[ind];
+    })
+
+    flagReverse = !flagReverse;
+
+})
