@@ -13,8 +13,8 @@ addBtn.addEventListener("click",()=>{
     if (flag && input.value.length != 0 && input.value[0] != " ") {
         let note = document.createElement("div")
         note.classList.add("note")
-        note.style.overflowX = "auto"
         let p = document.createElement("p")
+        p.style.overflowWrap = "break-word"
         let img = document.createElement("img")
         img.src= "./icon3.svg"
         img.addEventListener("mouseover",()=>{
@@ -39,8 +39,6 @@ addBtn.addEventListener("click",()=>{
             pler.forEach(item => {
             newArr.push(item.textContent)
             newArr.sort()
-            // console.log(newArr);
-
             newArr.forEach(item1 =>{
                 item =item1
             })
